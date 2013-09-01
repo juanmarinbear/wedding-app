@@ -5,17 +5,35 @@
 <div id='gallery' class='well clearfix'>
   <div class='column left-column'>
     <%@left_images.each do |image|%>
-      <%=image_tag image.photo.url%>
+      <a class='photo-frame' alt="Juan & Dulce" href='<%=image.photo.url%>' target='_blank'>
+        <%=image_tag image.photo.url%>
+        <div class='photo-info'>
+          <span class='opacity'></span>
+          <span class='photo-by'>Por: <%=image.uploader.name%> <%=image.uploader.lastname%></span>
+        </div>
+      </a>
     <%end%>
   </div>
   <div class='column center-column'>
     <%@center_images.each do |image|%>
-      <%=image_tag image.photo.url%>
+      <a class='photo-frame' alt="Juan & Dulce" href='<%=image.photo.url%>' target='_blank'>
+        <%=image_tag image.photo.url%>
+        <div class='photo-info'>
+          <span class='opacity'></span>
+          <span class='photo-by'>Por: <%=image.uploader.name%> <%=image.uploader.lastname%></span>
+        </div>
+      </a>
     <%end%>
   </div>
   <div class='column right-column'>
     <%@right_images.each do |image|%>
-      <%=image_tag image.photo.url%>
+      <a class='photo-frame' alt="Juan & Dulce" href='<%=image.photo.url%>' target='_blank'>
+        <%=image_tag image.photo.url%>
+        <div class='photo-info'>
+          <span class='opacity'></span>
+          <span class='photo-by'>Por: <%=image.uploader.name%> <%=image.uploader.lastname%></span>
+        </div>
+      </a>
     <%end%>
   </div>
 </div>

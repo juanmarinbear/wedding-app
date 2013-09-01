@@ -34,6 +34,12 @@ $(document).ready(function(){
 
   $("input[type='file']").bootstrapFileInput();
 
+  $('.photo-frame').hover(function(){
+    $(this).find('.photo-info').animate({'bottom':0})
+  },function(){
+    $(this).find('.photo-info').animate({'bottom':'-50px'})
+  })
+
 
   $("#main-photo").click(function(){
     $(this).parent().tooltip('destroy')
@@ -209,9 +215,12 @@ function set_select_styles(){
 function hide_default_tags(){
   $(".tagsinput input").focus(function(){
     var parent = $(this).parents('.tagsinput');
-    $(parent).prev('.tagsinput').val('');
-    $(parent).find('span').each(function(){
-      $(this).remove();
-    });
+    var tagsinput = $(parent).prev('.tagsinput');
+    if (tagsinput.val() == 'juan,dulce'){
+      tagsinput.val('');
+      $(parent).find('span').each(function(){
+        $(this).remove();
+      });
+    }
   });
 }

@@ -1,7 +1,7 @@
 class Image < ActiveRecord::Base
   has_many :image_tags
   has_many :tags, through: :image_tags
-  has_one :uploader
+  belongs_to :uploader
 
   has_attached_file :photo
   validates_attachment_content_type :photo, :content_type => /^image\/(jpg|jpeg|pjpeg|png|x-png|gif)$/, :message => 'file type is not allowed (only jpeg/png/gif images)'
