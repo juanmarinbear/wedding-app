@@ -21,12 +21,9 @@
 //= require flatuipro
 //= require_tree .
 
-/*$(document).on('page:load', function(){
-  set_select_styles();
-});*/
 
 $(document).ready(function(){
-
+  alert('her');
   set_select_styles();
   plus_one();
   minus_one();
