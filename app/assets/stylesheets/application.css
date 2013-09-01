@@ -195,6 +195,7 @@ a.btn:visited {
 #gallery {
   margin:0 auto;
   width: 920px;
+  margin-bottom:20px;
 }
 
 .column img {
