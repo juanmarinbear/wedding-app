@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @uploader.name %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @uploader.lastname %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @uploader.email %>
+</p>
+
+<%= link_to 'Edit', edit_uploader_path(@uploader) %> |
+<%= link_to 'Back', uploaders_path %>

@@ -1,0 +1,110 @@
+<div class='container'>
+  <h3>Total: <%=@total%></h3>
+  <h1>Guest with companion</h1>
+  <table class='table table-striped'>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Facebook</th>
+        <th>Twitter</th>
+        <th>Instagram</th>
+        <th>Dish</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @guests_with_companion.each do |guest| %>
+        <tr>
+          <td><%= guest.name %></td>
+          <td><%= guest.lastname %></td>
+          <td><%= guest.email %></td>
+          <td><%= guest.mobile %></td>
+          <td><%= guest.facebook %></td>
+          <td><%= guest.twitter %></td>
+          <td><%= guest.instagram %></td>
+          <td><%= guest.dish %></td>
+          <td>
+          <div class="btn-group">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+              Actions
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to 'Show', guest %></li>
+              <li><%= link_to 'Edit', edit_guest_path(guest) %></li>
+              <li><%= link_to 'Destroy', guest, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+            </ul>
+          </div>
+        </td> 
+        </tr>
+
+        <tr>
+          <td><%= guest.companion.name %></td>
+          <td><%= guest.companion.lastname %></td>
+          <td><%= guest.companion.email %></td>
+          <td><%= guest.companion.mobile %></td>
+          <td><%= guest.companion.facebook %></td>
+          <td><%= guest.companion.twitter %></td>
+          <td><%= guest.companion.instagram %></td>
+          <td><%= guest.companion.dish %></td>
+          <td></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <h1>Forever alone</h1>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Facebook</th>
+        <th>Twitter</th>
+        <th>Instagram</th>
+        <th>Dish</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @guests.each do |guest| %>
+        <tr>
+          <td><%= guest.name %></td>
+          <td><%= guest.lastname %></td>
+          <td><%= guest.email %></td>
+          <td><%= guest.mobile %></td>
+          <td><%= guest.facebook %></td>
+          <td><%= guest.twitter %></td>
+          <td><%= guest.instagram %></td>
+          <td><%= guest.dish %></td>
+          <td>
+            <div class="btn-group">
+              <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                Actions
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to 'Show', guest %></li>
+                <li><%= link_to 'Edit', edit_guest_path(guest) %></li>
+                <li><%= link_to 'Destroy', guest, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+              </ul>
+            </div>
+          </td>          
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div id='dishes'>
+    <h3>Dishes</h3>
+    <% @dishes_total.each do |dish| %>
+      <h4><%= "#{dish[:dish]} : #{dish[:total]}" %></h4>
+    <%end%>
+  </div>
+</div>
+<%= link_to 'New Guest', new_guest_path, class:'btn btn-info btn-large' %>

@@ -1,0 +1,76 @@
+<div class='share-photos'>
+  <h1>Content Admin </h1>
+  <ul class="nav nav-pills">
+    <li <% unless @approved_flag %> class="active" <%end%> ><%= link_to 'Por Revisar', 'admin-content' %></li>
+    <li <% if @approved_flag %> class="active" <%end%>><%= link_to 'Aprobados', 'admin-content?approved=true' %></li>
+</ul>
+</div>
+
+<form action='/images_status' method='post' id='content-admin'>
+<div id='gallery' class='well clearfix'>
+
+  <div class='align-center'>
+    <% if @images.count < 1%>
+      <% if @approved_flag %>
+        <h2>No hay imagenes aprobadas.</h2>
+      <%else%>
+        <h2>No hay imagenes por aprobar.</h2>
+      <%end%>
+    <%end%>
+  </div>
+
+  <div class='column left-column'>
+    <%@left_images.each do |image|
+      @total_counter+=1
+    %>
+
+      <div class='image-actions'>
+        <div class='actions-section'>
+          <div class='image-opacity'></div>
+          <div class='actions-content clearfix'>
+            <input name='content[<%=@total_counter%>][approved]' class='checkbox' type="checkbox" data-toggle='switch' <% if @approved_flag %> checked <%end%> >
+            <input name='content[<%=@total_counter%>][id]' type='hidden' value='<%=image.id%>' />
+          </div>
+        </div>
+          <%=image_tag image.photo.url%>
+      </div>
+    <%end%>
+  </div>
+  <div class='column center-column '>
+      <%@center_images.each do |image|
+        @total_counter+=1
+      %>
+        <div class='image-actions'>
+          <div class='actions-section'>
+            <div class='image-opacity'></div>
+            <div class='actions-content clearfix'>
+            <input name='content[<%=@total_counter%>][approved]' class='checkbox' type="checkbox" data-toggle='switch' <% if @approved_flag %> checked <%end%>>
+            <input name='content[<%=@total_counter%>][id]' type='hidden' value='<%=image.id%>' />
+            </div>
+          </div>
+            <%=image_tag image.photo.url%>
+        </div>
+      <%end%>
+  </div>
+  <div class='column right-column'>
+    <%@right_images.each do |image|
+      @total_counter+=1
+    %>
+      <div class='image-actions'>
+        <div class='actions-section'>
+          <div class='image-opacity'></div>
+          <div class='actions-content clearfix'>
+            <input name='content[<%=@total_counter%>][approved]' class='checkbox' type="checkbox" data-toggle='switch' <% if @approved_flag %> checked <%end%>>
+            <input name='content[<%=@total_counter%>][id]' type='hidden' value='<%=image.id%>' />
+          </div>
+        </div>
+          <%=image_tag image.photo.url%>
+      </div>
+    <%end%>
+</div>
+</div>
+<div class='share-photos align-center'>
+  <input type='submit' value='Guardar' class='btn btn-info btn-large' />
+</div>
+
+</form>

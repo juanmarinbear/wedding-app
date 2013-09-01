@@ -1,0 +1,89 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Guest</h1>
+<p>
+  <strong>Name:</strong>
+  <%= @guest.name %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @guest.lastname %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @guest.email %>
+</p>
+
+<p>
+  <strong>Mobile:</strong>
+  <%= @guest.mobile %>
+</p>
+
+<p>
+  <strong>Facebook:</strong>
+  <%= @guest.facebook %>
+</p>
+
+<p>
+  <strong>Twitter:</strong>
+  <%= @guest.twitter %>
+</p>
+
+<p>
+  <strong>Instagram:</strong>
+  <%= @guest.instagram %>
+</p>
+
+<p>
+  <strong>Dish:</strong>
+  <%= @guest.dish %>
+</p>
+
+<%if @guest.companion %>
+<h1>Companion</h1>
+<p>
+  <strong>Name:</strong>
+  <%= @guest.companion.name %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @guest.companion.lastname %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @guest.companion.email %>
+</p>
+
+<p>
+  <strong>Mobile:</strong>
+  <%= @guest.companion.mobile %>
+</p>
+
+<p>
+  <strong>Facebook:</strong>
+  <%= @guest.companion.facebook %>
+</p>
+
+<p>
+  <strong>Twitter:</strong>
+  <%= @guest.companion.twitter %>
+</p>
+
+<p>
+  <strong>Instagram:</strong>
+  <%= @guest.companion.instagram %>
+</p>
+
+<p>
+  <strong>Dish:</strong>
+  <%= @guest.companion.dish %>
+</p>
+
+<%end%>
+
+<%= link_to 'Edit', edit_guest_path(@guest), class:'btn btn-info btn-large' %> |
+<%= link_to 'Back', guests_path, class:'btn btn-large' %>

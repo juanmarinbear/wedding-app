@@ -1,0 +1,64 @@
+<section id='rsvp_container' class='well clearfix'>
+<%= form_for @uploader,:html => {:multipart => true} do |f| %>
+  <% if @uploader.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@uploader.errors.count, "error") %> prohibited this uploader from being saved:</h2>
+
+      <ul>
+      <% @uploader.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+      <section id='guest'>
+        <fieldset id='guest_personal_information'>
+          <legend>&iquest;Qui&eacute;n sube las fotos?</legend>
+          <div class='clearfix'>
+            <div class="control-group">
+              <%= f.text_field :name,{placeholder:'Nombre',value:@name, autofocus:'autofocus'} %>
+            </div>
+            <div class="control-group">
+              <%= f.text_field :lastname,{placeholder:'Apellido(s)', value:@lastname} %>
+            </div>
+            <div class="control-group">
+              <%= f.text_field :email,{placeholder:'Email',value:@email} %>
+            </div>
+          </div>
+        </fieldset>
+      </section>
+
+
+  <div id='photos-container'>
+    <legend>Selecciona tus fotos y agrégales tags.  Por ejemplo, si es una foto de Juan en su infancia, agrega estos tags: <span class='btn btn-primary'>juan</span> <span class='btn btn-primary'>infancia</span></legend>
+    <div class='picture-container'>
+      <div class='field'>
+        <input title='Seleccionar Foto' id='main-photo' name='uploader[images_attributes][][photo]' class='photos btn btn-info' type='file' />
+      </div>
+      <input name="uploader[images_attributes][][tag_list]" class="tagsinput tagsinput-primary" value="juan, dulce" />
+    </div>
+
+  </div>
+
+  <div class='field'>
+    <a  id='add-photo' class='btn btn-success'>
+      <i class='icon-plus'></i>
+      Agregar Foto
+    </a>
+  </div>
+
+  <div class="actions" style='text-align:center'>
+    <%= f.submit 'Subir Fotos', class:'btn btn-info btn-large' %>
+  </div>
+<% end %>
+</section>
+
+<div class='hidden'>
+  <div class='picture-container clone-image'>
+      <div class='field'>
+        <input title='Seleccionar Foto' name='uploader[images_attributes][][photo]' class='photos btn btn-info' type='file' />
+      </div>
+      <input name="uploader[images_attributes][][tag_list]" class="tagsinput tagsinput-primary" value="juan, dulce" />
+  </div>
+</div>

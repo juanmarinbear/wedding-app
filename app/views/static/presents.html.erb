@@ -1,0 +1,96 @@
+<section id='presents_container' class='well clearfix'>
+  <header>
+    <h3>Regalos</h3>
+  </header>
+  <section id='instructions' class='well clearfix'>
+    <p>Para nosotros lo mas importante es que asistas a la ceremonia del <strong>13 de Diciembre 2013</strong> en <strong>Distrito Federal</strong> y a la del <strong>21 de Junio 2014</strong> en <strong>Cancún</strong>.</p>
+    <p>Sabemos que esto implica un esfuerzo económico de tu parte por lo que <strong>no es necesario</strong> que nos regales algo.</p>
+    <p>Sin embargo, si quieres regalarnos algo, puedes hacerlo abajo.</p>
+  </section>
+
+  <% if @response %>
+    <div class='alert alert-<%=@class%>'>
+      <span class='<%=@class%>'> <%=@response%> </span>
+    </div>
+  <%end %>
+
+
+  <div class='alerts alert alert-error'>
+    <span class='error'> Selecciona o especifica un regalo </span>
+  </div>
+  <section id='presents'>
+    <form id='presents_form' method='post' aciton='/presents'>
+      <fieldset id='present_options'>
+        <legend>Opciones de Regalo</legend>
+        <ol>
+          <li>
+            <label class="radio">
+              <input class='present-radio' type="radio" name="group1" value="XS" data-toggle="radio">
+              <img src="/assets/icons/Gift-Box_2x.png" alt="Gift box 2x">
+              <span>XS - $250 MX</span>
+              <input type='hidden' class='present-value' value='250'  />
+            </label>
+          </li>
+          <li>
+            <label class="radio">
+              <input class='present-radio' type="radio" name="group1" value="S" data-toggle="radio">
+              <img src="/assets/icons/Gift-Box_2x.png" alt="Gift box 2x">
+              <span>S - $500 MX</span>
+              <input type='hidden' class='present-value' value='500'  />
+            </label>
+          </li>
+          <li>
+            <label class="radio">
+              <input class='present-radio' type="radio" name="group1" value="M" data-toggle="radio">
+              <img src="/assets/icons/Gift-Box_2x.png" alt="Gift box 2x">
+              <span>M - $1,000 MX</span>
+              <input type='hidden' class='present-value' value='1000'  />
+            </label>
+          </li>
+          <li>
+            <label class="radio">
+              <input class='present-radio' type="radio" name="group1" value="L" data-toggle="radio">
+              <img src="/assets/icons/Gift-Box_2x.png" alt="Gift box 2x">
+              <span>L - $2,000 MX</span>
+              <input type='hidden' class='present-value' value='2000'  />
+            </label>
+          </li>
+          <li>
+            <label class="radio">
+              <input class='present-radio' type="radio" name="group1" value="XL" data-toggle="radio">
+              <img src="/assets/icons/Gift-Box_2x.png" alt="Gift box 2x">
+              <span>XL - $5,000 MX</span>
+              <input type='hidden'class='present-value'  value='5000'  />
+            </label>
+          </li>
+          <li>
+            <label class="radio">
+              <input class='present-radio' type="radio" name="group1" value="specify" data-toggle="radio">
+              <img src="/assets/icons/Gift-Box_2x.png" alt="Gift box 2x">
+              <div class='control-group'>
+                <div class='input-prepend'>
+                  <span class='add-on'>$</span>
+                  <input id='custom_present' type='text' class='present-value span2' placeholder='Especificar' name='specify' />
+                </div>
+              </div>
+            </label>
+          </li>
+        </ol>
+      </fieldset>
+    </form>
+    <section class='buttons'>
+      <div>
+        <a id='present-button' class='btn btn-info btn-large'>Enviar Regalo</a>
+      </div>
+
+      <div id='confirmation-message' class='alert alert-success'>
+        &iquest;Haras un reagalo de $<span class='success' id='value-present'></span> MXN? Si estas deacuerdo haz click en pagar o <a id='cancel-present' class='btn btn-danger'>Cancelar</a>
+        <div id='mercadopago-container'>
+          <a id='payment-button' href="https://www.mercadopago.com/mlm/checkout/pay?pref_id=131042593-fe95a507-cc92-4ab8-800b-2475aff66cd7" name="MP-Checkout" class="lightblue-ar-s-ov" mp-mode="modal" onreturn="execute_my_onreturn">Pagar</a>
+          <script type="text/javascript" src="http://mp-tools.mlstatic.com/buttons/render.js"></script></div>
+        </div>
+      </div>
+      
+    </section>
+  </section>
+</section>

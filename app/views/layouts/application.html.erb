@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Juan & Dulce</title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#nav-collapse-01"></button>
+          <div class="nav-collapse collapse" id="nav-collapse-01">
+            <img id='logo' src='/assets/DyJ.png' />
+            <ul id='navbar' class="nav">
+              <li><a href="/aboutus">Nosotros</a></li>
+              <li><a href="/ceremony">Ceremonia</a></li>
+              <li><a href="/reception">Recepcion</a></li>
+              <li><a href="/accommodations">Hospedaje</a></li>
+              <li><a href="/guests/new">RSVP</a>
+                <% if current_admin? %>
+                  <ul>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="/guests">Guests</a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="/guests/new">RSPV</a>
+                    </li>
+                  </ul>
+                <%end%>
+              </li>
+              <li><a href="/presents">Regalos</a></li>
+              <li><a href="/images">Fotos</a>
+                  <ul>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="/images">Galeria de Fotos</a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="/uploaders/new">Comparte tus fotos</a>
+                    </li>
+                    <% if current_admin? %>
+                      <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="/admin-content">Administrador de Contenido</a>
+                      </li>
+                    <%end%>
+                  </ul>
+              </li>
+
+              <% if current_admin? %>
+                <li><a href="/signout">Sign Out</a></li>
+              <%end%>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.container -->
+    <div class="container">
+      <% if flash[:notice] %>
+        <div class="alert alert-error">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <%=flash[:notice]%>
+        </div>
+      <%end%>
+      <%= yield %>
+    </div>
+    <div class='align-center button'>
+      <p data-toggle="tooltip" title="Escribe a jmbear@gmail.com"></p>
+      <button id='help' class='btn btn-primary btn-wide mll'>
+        <i class='fui-mail'>
+        </i>
+        ¿Necesitas ayuda?
+      </button>
+    </div>
+  </body>
+</html>

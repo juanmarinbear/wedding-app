@@ -1,0 +1,21 @@
+<div class='share-photos'>
+  <%=link_to 'Comparte tus Fotos', '/uploaders/new', class:'btn btn-info btn-large'  %>
+</div>
+
+<div id='gallery' class='well clearfix'>
+  <div class='column left-column'>
+    <%@left_images.each do |image|%>
+      <%=image_tag image.photo.url%>
+    <%end%>
+  </div>
+  <div class='column center-column'>
+    <%@center_images.each do |image|%>
+      <%=image_tag image.photo.url%>
+    <%end%>
+  </div>
+  <div class='column right-column'>
+    <%@right_images.each do |image|%>
+      <%=image_tag image.photo.url%>
+    <%end%>
+  </div>
+</div>

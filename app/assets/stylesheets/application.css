@@ -1,0 +1,279 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+ /* Global */
+
+ #logo {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+ }
+ 
+#navbar {
+  position: relative;
+  left: 96px;
+ }
+
+ #help {
+  position: relative;
+  margin: 0 auto;
+  bottom: 0px;
+ }
+
+a.btn:visited {
+  color:#FFF;
+}
+
+.buttons {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+#photos-container {
+  padding: 20px 0;
+}
+
+#photos-container legend {
+  padding-bottom: 10px;
+}
+
+.fields-file{
+  margin-bottom: 15px;
+}
+
+.map, .description {
+  display: inline-block;
+  width: 49%;
+  float: left;
+}
+
+.map iframe {
+  width: 100%;
+  min-height: 356px;
+  height: auto;
+}
+
+.description {
+  min-height: 400px;
+  height: auto;
+  margin-left: 2%;
+}
+
+.item img {
+  margin: 0 auto;
+  height: 400px;
+}
+
+/* About Us */
+
+#aboutus_container {
+  background: url('/assets/dulce_y_juan.jpg') no-repeat;
+  background-position: center;
+  color: #fff;
+  position: relative;
+}
+
+#aboutus_text {
+  position: relative;
+  z-index: 2;
+}
+
+#aboutus_opacity {
+  top: 0;
+  left: 0;
+  background-color: #000;
+  opacity: 0.3;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* RSVP */
+
+#rsvp_container ol {
+  list-style: none;
+  margin: 0;
+}
+
+#thanks {
+  text-align:center;
+  display: none;
+}
+
+#thanks img {
+  width: 60%;
+}
+
+#rsvp_container fieldset {
+  margin-bottom: 5px;
+}
+
+#rsvp_container .control-group {
+  float:left;
+  margin-right: 1em;
+}
+
+#rsvp_container .input-prepend {
+  margin-bottom: 0;
+}
+
+
+#minus_one_button {
+  display: none;
+}
+
+#minus_one_button.visible {
+  display: inline-block;
+}
+
+#plus_one_button.hidden {
+  display: none;
+}
+
+#plus_one_attributes {
+  display: none;
+}
+
+/* Presents */
+
+#present_options ol {
+  list-style: none;
+  padding: 10px 0;
+  width: 360px;
+  margin: 0 auto;
+  display: block;
+}
+
+#present_options li {
+  display: inline-block;
+  margin: 10px auto;
+}
+
+#present_options .radio, img, span {
+  display: inline;
+}
+
+#present_options span {
+  font-size: 22px;
+}
+
+#present_options img {
+  margin: 0 10px;
+}
+
+#present_options .control-group {
+  display: inline;
+}
+
+.radio img {
+  width: 100px;
+}
+
+#custom_present {
+  width: 120px;
+}
+
+#gallery {
+  margin:0 auto;
+  width: 920px;
+}
+
+.column img {
+  width:100%;
+  margin-bottom: 10px
+}
+
+#gallery .column {
+  float: left;
+  width:300px;
+}
+
+.column.left-column {
+}
+
+.column.center-column {
+  margin: 0 10px;
+}
+
+.column.right-column{ 
+}
+
+
+.share-photos {
+  width:960px;
+  margin: 15px auto;
+}
+
+.image-container {
+  float: left;
+}
+
+
+.image-content {
+  padding: 10px;
+}
+
+
+.image-actions {
+  position: relative;  
+}
+
+.image-actions .actions-section {
+  height:50px;
+  width: 100%;
+  position: absolute;
+  z-index: 3;
+  bottom:10px;
+
+}
+
+.image-opacity {
+  height:50px;
+  width: 100%;
+  background-color: #000;
+  z-index: 0;
+  opacity:0.7;
+  position: absolute;
+}
+.alerts {
+  display:none;
+}
+
+.actions-content {
+  margin-top: 10px;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-center.button {
+  padding-bottom: 20px;
+}
+
+.alert-error span.error {
+  color:#e74c3c;
+}
+
+.alert-success span.success {
+  color:#16a085;
+}
+
+#mercadopago-container, #confirmation-message {
+  display: none;
+}

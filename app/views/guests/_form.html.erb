@@ -1,0 +1,169 @@
+<section id='thanks' class='well'>
+  <h1>&iexcl;Gracias por acompañarnos!</h1>
+  <img alt='star wars wedding' src='/assets/dulce_y_juan_thanks.jpg' />
+</section>
+
+<section id='rsvp_container' class='well clearfix'>
+  <header>
+    <h3>RSVP</h3>
+  </header>
+  <p>Te pedimos que reserves tu lugar antes del <strong>13 de Noviembre 2013</strong>.</p>
+  <p>Para agregar un acompañante, da click a '+1'.</p>
+  <section id='rsvp_form' class='well clearfix'>
+    <%= form_for @guest, remote:true, :html=>{id:'guest_form'} do |f| %>
+      <section id='guest'>
+        <h4>Invitado</h4>
+        <fieldset id='guest_personal_information'>
+          <legend>Información Personal</legend>
+            <div class='clearfix'>
+              <div class='control-group'>
+                <%=f.text_field :name,{placeholder:'Nombre', autofocus:'autofocus'}%>
+              </div>
+              <div class='control-group'>
+                <%=f.text_field :lastname,{placeholder:'Apellido(s)'}%>
+              </div>
+              <div class='control-group'>
+                <%=f.text_field :mobile,{placeholder:'Celular (10 dígitos)'}%>
+              </div>
+              <div class='control-group'>
+                <%=f.text_field :email,{placeholder:'Email'}%>
+              </div>
+            </div>
+            <p>Con tu información general, te contactamos en caso de cualquier acontecimiento.</p>
+            
+        </fieldset>
+        <fieldset id='guest_social_information'>
+          <legend>Información Social</legend>
+          <div class='clearfix'>
+            <div class='control-group'>
+                <%=f.text_field :facebook,{placeholder:'Facebook'}%>
+            </div>
+            <div class='control-group'>
+                <div class='input-prepend'>
+                  <span class='add-on'>@</span>
+                  <%=f.text_field :twitter,{placeholder:'Twitter',class:'span3'}%>
+                </div>
+            </div>
+            <div class='control-group'>
+                <div class='input-prepend'>
+                  <span class='add-on'>@</span>
+                  <%=f.text_field :instagram,{placeholder:'Instagram',class:'span3'}%>
+                </div>
+            </div>
+          </div>
+          <p>Con tu información social, veremos las fotos que tomes durante la boda.</p>
+
+          <legend>Selecciona Platillo</legend>
+            <div class='clearfix'>
+              <div class='control-group'>
+                 <%= f.select :dish, options_for_select(Guest.dishes,selected:(@guest.dish unless @guest.dish.nil?)),{},class:'info' %>
+              </div>
+            </div>
+        </fieldset>
+      </section>
+      <section id='plus_one'>
+        <%unless @guest.companion_id.nil? %>
+          <h4>Adicional</h4>
+          <fieldset id='plus_one_personal_information'>
+            <legend>Información Personal</legend>
+            <%=f.fields_for :companion do |c| %>
+            <div class='clearfix'>
+              <div class='control-group'>
+                <%=c.text_field :name,{placeholder:'Nombre'}%>
+              </div>
+              <div class='control-group'>
+                <%=c.text_field :lastname,{placeholder:'Apellido(s)'}%>
+              </div>
+              <div class='control-group'>
+                <%=c.text_field :mobile,{placeholder:'Celular (10 dígitos)'}%>
+              </div>
+              <div class='control-group'>
+                <%=c.text_field :email,{placeholder:'Email'}%>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset id='plus_one_social_information'>
+            <legend>Información Social</legend>
+            <div class='clearfix'>
+              <div class='control-group'>
+                  <%=c.text_field :facebook,{placeholder:'Facebook'}%>
+              </div>
+              <div class='control-group'>
+                <div class='input-prepend'>
+                  <span class='add-on'>@</span>
+                  <%=c.text_field :twitter,{placeholder:'Twitter',class:'span3'}%>
+                </div>
+              </div>
+              <div class='control-group'>
+                <div class='input-prepend'>
+                  <span class='add-on'>@</span>
+                  <%=c.text_field :instagram,{placeholder:'Instagram',class:'span3'}%>
+                </div>
+              </div> 
+            </div>
+            <legend>Selecciona Platillo</legend>
+            <div class='clearfix'>
+              <div class='control-group'>
+                <%= c.select :dish, options_for_select(Guest.dishes, selected:(@guest.companion.dish unless @guest.companion.nil?)),{},class:'info' %>
+              </div>
+            </div>
+          </fieldset>
+          <%end%>
+        <%end%>
+      </section>
+    <%end%>
+  </section>
+
+  <div id='plus_one_attributes'>
+      <h4>Adicional</h4>
+      <fieldset id='plus_one_personal_information'>
+        <legend>Información Personal</legend>
+        <div class='clearfix'>
+          <div class='control-group'>
+            <input type='text' placeholder='Nombre' name='guest[companion_attributes][name]' autofocus>
+          </div>
+          <div class='control-group'>
+            <input type='text' placeholder='Apellido(s)' name='guest[companion_attributes][lastname]'>
+          </div>
+          <div class='control-group'>
+            <input type='tel' placeholder='Celular (10 dígitos)' name='guest[companion_attributes][mobile]'>
+          </div>
+          <div class='control-group'>
+            <input type='email' placeholder='Email' name='guest[companion_attributes][email]'>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset id='plus_one_social_information'>
+        <legend>Información Social</legend>
+        <div class='clearfix'>
+          <div class='control-group'>
+            <input type='text' class='span3' placeholder='Facebook' name='guest[companion_attributes][facebook]' />
+          </div>
+          <div class='control-group'>
+            <div class='input-prepend'>
+              <span class='add-on'>@</span>
+              <input type='text' class='span3' placeholder='Twitter' name='guest[companion_attributes][twitter]' />
+            </div>
+          </div>
+          <div class='control-group'>
+            <div class='input-prepend'>
+              <span class='add-on'>@</span>
+              <input type='text' class='span3' placeholder='Instagram' name='guest[companion_attributes][instagram]' />
+            </div>
+          </div> 
+        </div>
+      </fieldset>
+      <legend>Selecciona Platillo</legend>
+        <div class='clearfix'>
+          <div class='control-group'>
+            <%= select_tag 'guest[companion_attributes][dish]', options_for_select(Guest.dishes), class:'info' %>
+          </div>
+        </div>
+  </div>
+
+  <section class='buttons'>
+    <input type='button' id='rsvp_submit' value='Enviar' class='btn btn-huge btn-primary'>
+    <input type='button' id='plus_one_button' value='+1' class='btn btn-huge btn-warning <%=@plus_one%>'>
+    <input type='button' id='minus_one_button' value='-1' class='btn btn-huge btn-warning <%=@minus_one%>'>
+  </section>
+</section>
