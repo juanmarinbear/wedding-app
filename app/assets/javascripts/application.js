@@ -23,19 +23,14 @@
 
 
 $(document).ready(function(){
-  alert('her');
   set_select_styles();
   plus_one();
   minus_one();
   hide_default_tags();
 
-  $('.tooltip').hide();
+  $('#help').tooltip({"title":"Escribe a jmbear@gmail.com",
+                      "placement":'top'});
 
-  $('#help').hover(function(){
-    $('.tooltip').show();
-  },function(){
-    $('.tooltip').hide();
-  });
 
   $("input[type='file']").bootstrapFileInput();
 
