@@ -59,7 +59,7 @@ $(document).ready(function(){
     
     if (value == '' || !pat.test(value) ) {
       $('.alerts').show();
-      $("html, body").animate({ scrollTop: 0 }, "fast");
+      $("html, body").animate({ scrollTop: 0 }, "slow");
     }
     else{
       var jqxhr = $.post('/mercado_pago',{'value':value})
@@ -139,6 +139,7 @@ $(document).ready(function(){
     .done(function(response) { 
       $('#rsvp_container').fadeOut(function(){
         $('#thanks').fadeIn();
+        $("html, body").animate({ scrollTop: 0 }, "slow");
       });
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
