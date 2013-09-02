@@ -285,7 +285,7 @@ a.btn:visited {
   overflow: hidden;
 }
 
-.photo-frame a:hover{
+a.photo-frame:hover{
   background-color: transparent !important;
 }
 
