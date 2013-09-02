@@ -53,7 +53,7 @@ $(document).ready(function(){
       <div class='field'> \
         <input title='Seleccionar Foto' name='uploader[images_attributes][][photo]' class='photos btn btn-info' type='file' /> \
       </div> \
-      <input name='uploader[images_attributes][][tag_list]' class='tagsinput tagsinput-primary' value='juan, dulce' /> \
+      <input name='uploader[images_attributes][][tag_list]' class='tagsinput tagsinput-primary' value='juan, tabasco' /> \
   </div>");
     $('#photos-container').append(element);
     element.find('input.tagsinput').tagsInput();
