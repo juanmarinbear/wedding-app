@@ -47,8 +47,17 @@ $(document).ready(function(){
 
   $('#add-photo').click(function(){
     var photos = $('.photos').length;
-    var clone = $('.clone-image').clone(true).removeClass('clone-image');
-    $('#photos-container').append(clone);
+    //var clone = $('.clone-image').clone(true).removeClass('clone-image');
+
+    var element = $("<div class='picture-container'> \
+      <div class='field'> \
+        <input title='Seleccionar Foto' name='uploader[images_attributes][][photo]' class='photos btn btn-info' type='file' /> \
+      </div> \
+      <input name='uploader[images_attributes][][tag_list]' class='tagsinput tagsinput-primary' value='juan, dulce' /> \
+  </div>");
+    $('#photos-container').append(element);
+    element.find('input.tagsinput').tagsInput();
+    element.find("input[type='file']").bootstrapFileInput();
   });
 
   $('#cancel-present').click(function(){
@@ -213,7 +222,7 @@ function set_select_styles(){
 }
 
 function hide_default_tags(){
-  $(".tagsinput input").focus(function(){
+  $(document).on('focus',".tagsinput input",function(){
     var parent = $(this).parents('.tagsinput');
     var tagsinput = $(parent).prev('.tagsinput');
     if (tagsinput.val() == 'juan,dulce'){

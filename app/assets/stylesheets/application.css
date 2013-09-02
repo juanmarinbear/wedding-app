@@ -14,10 +14,6 @@
 
  /* Global */
 
- a:hover{
-  background-color: transparent !important;
- }
-
  #logo {
   position: absolute;
   top: 16px;
@@ -289,6 +285,10 @@ a.btn:visited {
   overflow: hidden;
 }
 
+.photo-frame a:hover{
+  background-color: transparent !important;
+}
+
 .photo-info{
   position: absolute;
   height:50px;
@@ -309,3 +309,8 @@ a.btn:visited {
   color: #FFF;
   padding:10px;
 }
+
+.tagsinput-add-container input{
+  min-width:100px;
+}
+
