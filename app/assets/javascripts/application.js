@@ -225,7 +225,7 @@ function hide_default_tags(){
   $(document).on('focus',".tagsinput input",function(){
     var parent = $(this).parents('.tagsinput');
     var tagsinput = $(parent).prev('.tagsinput');
-    if (tagsinput.val() == 'juan,dulce'){
+    if (tagsinput.val() == 'juan,tabasco'){
       tagsinput.val('');
       $(parent).find('span').each(function(){
         $(this).remove();
