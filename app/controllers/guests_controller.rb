@@ -106,8 +106,8 @@ class GuestsController < ApplicationController
     value = params[:value]
 
     dateTime = DateTime.now.strftime('%d%m%Y%H%M%S')
-    client_id = '1115170520885376'
-    client_secret = 'NriRaavFLdt1Q4hQAWzTw8b0kvWg4MMo'
+    client_id = '2267111060447384'
+    client_secret = 'Wl7ZDdEsP8YewntOkXdE2ldfLNz5nLV7'
 
     if (session[:access_token])
         access_token = session[:access_token]
