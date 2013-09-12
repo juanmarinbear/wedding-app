@@ -82,6 +82,7 @@ a.btn:visited {
 
 #aboutus_container {
   background: url('/assets/dulce_y_juan.jpg') no-repeat;
+  background-size: 100% auto;
   background-position: center;
   color: #fff;
   position: relative;
