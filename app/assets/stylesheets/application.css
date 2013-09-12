@@ -14,10 +14,14 @@
 
  /* Global */
 
+body {
+  background-color: black !important;
+}
+
  #logo {
   position: absolute;
-  top: 16px;
-  left: 16px;
+  top: 14px;
+  left: 14px;
  }
  
 #navbar {
