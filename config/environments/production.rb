@@ -77,4 +77,14 @@ FlatuiApp::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => 'xy5n8c',
+      :access_key_id => 'AKIAIYWT2BAEIPB4XVKQ',
+      :secret_access_key => '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',
+      s3_host_name: 's3-us-west-2.amazonaws.com'
+    }
+  }
 end
